@@ -1,590 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Babalola - Robotics Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Babalola | Robotics & Autonomous Systems</title>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: #ffffff;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-            padding: 3rem 0;
-            text-align: center;
-            border-bottom: 3px solid #0d47a1;
-        }
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #ffffff;
-            margin: 0 auto 1.5rem;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #1e88e5;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+      line-height: 1.65;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 2rem;
+    }
 
-        .title {
-            font-size: 1.3rem;
-            color: #e3f2fd;
-            margin-bottom: 1rem;
-        }
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      background: #1e3a8a;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
+    .nav-container {
+      max-width: 1300px;
+      margin: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .contact-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .logo {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
 
-        .contact-links a:hover {
-            color: #e3f2fd;
-        }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
 
-        /* Navigation */
-        nav {
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #e3f2fd;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-            flex-wrap: wrap;
-        }
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a, #1e40af);
+      color: #fff;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
 
-        nav ul li {
-            margin: 0 1.5rem;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
 
-        nav ul li a {
-            color: #1565c0;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .hero p {
+      max-width: 850px;
+      margin: 1.5rem auto;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
 
-        nav ul li a:hover {
-            color: #1e88e5;
-        }
+    .hero-buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid #e3f2fd;
-        }
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
 
-        h2 {
-            font-size: 2rem;
-            color: #1565c0;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
-        }
+    .btn-primary {
+      background: #3b82f6;
+      color: #fff;
+    }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #1e88e5, #1565c0);
-        }
+    .btn-secondary {
+      border: 2px solid #fff;
+      color: #fff;
+    }
 
-        /* About Section */
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: justify;
-            color: #37474f;
-            line-height: 1.8;
-        }
+    /* SECTION */
+    section {
+      padding: 5rem 0;
+    }
 
-        .about-content p {
-            margin-bottom: 1.5rem;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 2.3rem;
+      color: #1e3a8a;
+      margin-bottom: 3rem;
+      position: relative;
+    }
 
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    .section-title::after {
+      content: "";
+      width: 70px;
+      height: 4px;
+      background: #3b82f6;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-        .skill-category {
-            background: #e3f2fd;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid #1e88e5;
-        }
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
 
-        .skill-category h3 {
-            color: #1565c0;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
+    .profile {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: linear-gradient(135deg,#3b82f6,#1e40af);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #fff;
+      margin: auto;
+    }
 
-        .skill-category p {
-            color: #37474f;
-            line-height: 1.8;
-        }
+    .about p {
+      margin-bottom: 1.2rem;
+      color: #374151;
+    }
 
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    /* CARDS */
+    .grid-4, .grid-3 {
+      display: grid;
+      gap: 2rem;
+    }
 
-        .project-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #e3f2fd;
-            transition: all 0.3s;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(30, 136, 229, 0.3);
-            border-color: #1e88e5;
-        }
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      text-align: center;
+    }
 
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            background: #000;
-        }
+    .card i {
+      font-size: 2.2rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+    }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+    .card h3 {
+      margin-bottom: 0.8rem;
+      color: #1e3a8a;
+    }
 
-        .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-            color: white;
-            font-size: 1.2rem;
-        }
+    /* PROJECTS */
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
 
-        .project-info {
-            padding: 1.5rem;
-        }
+    .video {
+      position: relative;
+      padding-top: 56.25%;
+    }
 
-        .project-info h3 {
-            color: #1565c0;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
+    .video iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
 
-        .project-info p {
-            color: #37474f;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.8rem 0;
+    }
 
-        .tech-tag {
-            background: #e3f2fd;
-            border: 1px solid #1e88e5;
-            color: #1565c0;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-        }
+    .tag {
+      background: #eff6ff;
+      color: #1e40af;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
+    .links {
+      margin-top: auto;
+      display: flex;
+      gap: 0.6rem;
+    }
 
-        .project-links a {
-            padding: 0.6rem 1.2rem;
-            background: #1e88e5;
-            border: 1px solid #1565c0;
-            border-radius: 6px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
+    .links a {
+      background: #1e3a8a;
+      color: #fff;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
 
-        .project-links a:hover {
-            background: #1565c0;
-        }
+    /* FOOTER */
+    footer {
+      background: #1e3a8a;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #ffffff;
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-        }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 0.6rem;
+    }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+    @media(max-width:768px){
+      .about-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <!-- Replace with: <img src="your-photo.jpg" alt="John Babalola" class="profile-img"> -->
-            <div class="profile-img">JB</div>
-            <h1>John Babalola</h1>
-            <p class="title">Aspiring Robotics Engineer | Researcher</p>
-            <div class="contact-links">
-                <a href="mailto:abidemibabalola23@gmail.com">✉️ abidemibabalola23@gmail.com</a>
-                <a href="tel:+2349168881444">📞 +234 916 888 1444</a>
-                <a href="https://github.com/john002013" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/john-babalola-1a12a72a7" target="_blank">LinkedIn</a>
-            </div>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">John Babalola</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Robotics & Autonomous Systems Researcher</h1>
+  <p>
+    Focused on Robot Perception, Autonomous Systems, Embodied AI, and
+    Human–Robot Interaction. Aspiring robotics professor and researcher.
+  </p>
+  <div class="hero-buttons">
+    <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+    <a class="btn btn-secondary" href="John_Babalola_CV.pdf" download><i class="fa-solid fa-file-pdf"></i> Download CV</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="profile">JB</div>
+    <div class="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Final-year Electrical & Electronic Engineering student with a deep
+        commitment to robotics research and education. Experienced in ROS 2,
+        SLAM, computer vision, embedded systems, and AI-driven autonomy.
+      </p>
+      <p>
+        My long-term goal is to pursue a PhD in Robotics and become a professor,
+        advancing autonomous systems and mentoring the next generation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <h2 class="section-title">Research Interests</h2>
+    <div class="grid-4">
+      <div class="card"><i class="fa-solid fa-eye"></i><h3>Robot Perception</h3></div>
+      <div class="card"><i class="fa-solid fa-robot"></i><h3>Autonomous Systems</h3></div>
+      <div class="card"><i class="fa-solid fa-brain"></i><h3>Embodied & Agent AI</h3></div>
+      <div class="card"><i class="fa-solid fa-seedling"></i><h3>Agricultural Robotics</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="grid-4">
+      <div class="card"><i class="fa-solid fa-code"></i><h3>Python, C++, MATLAB</h3></div>
+      <div class="card"><i class="fa-solid fa-microchip"></i><h3>ROS 2, SLAM, Nav2</h3></div>
+      <div class="card"><i class="fa-solid fa-camera"></i><h3>Computer Vision</h3></div>
+      <div class="card"><i class="fa-solid fa-gears"></i><h3>Embedded Systems</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="grid-3">
+      <div class="project-card">
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/LR88-cI8DbQ" allowfullscreen></iframe>
         </div>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    I am a final year student from the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology, currently standing as the 2nd best graduating student of the class of 2026. My research interests lie in precision agriculture, human-robot interaction, autonomous robots, and robot perception.
-                </p>
-                <p>
-                    During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
-                </p>
-                <p>
-                    My long-term goal is to become a professor of robotics, holding the belief that the best way to impact the world in a positive way is to teach robotics. It is interesting, and any child exposed to it at a young age will stay glued to it. I am committed to exposing, teaching, and giving back to my society in terms of STEM education, innovation, and research.
-                </p>
-            </div>
+        <div class="project-content">
+          <h3>Embodied AI Pick-and-Place Robot</h3>
+          <div class="tags">
+            <span class="tag">ROS2</span><span class="tag">MoveIt2</span><span class="tag">AI Agents</span>
+          </div>
+          <div class="links">
+            <a href="https://github.com/john002013/Pick-and-Place-Embodied-AI-Robot">Code</a>
+            <a href="https://youtu.be/LR88-cI8DbQ">Video</a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Software Skills</h3>
-                    <p>
-                        Python, C++, Robot Operating System (ROS2 - SLAM, NAV2, Path Planning, Teleoperation, ROS-AI Integration), Agentic AI, MATLAB/Simulink, PyTorch
-                    </p>
-                </div>
-                <div class="skill-category">
-                    <h3>Hardware Skills</h3>
-                    <p>
-                        Embedded Systems, Arduino Programming, CAD/CAM Design (Fusion360), Additive and Subtractive Manufacturing, Hardware Programming (Raspberry Pi, Arduino, ESP32), Laser Cutting/Engraving
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+  </div>
+</section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Pick-and-Place Robot -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/LR88-cI8DbQ?rel=0" 
-                            title="Pick-and-Place Embodied AI Robot Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>Pick-and-Place Embodied AI Robot</h3>
-                        <p>ROS 2-based pick-and-place robotic system integrating MoveIt, LangChain agentic AI, and Gazebo Ignition for language-conditioned manipulation.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">ROS2</span>
-                            <span class="tech-tag">MoveIt2</span>
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Gazebo</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/Pick-and-Place-Embodied-AI-Robot" target="_blank">View Code</a>
-                            <a href="https://youtu.be/LR88-cI8DbQ" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
+<footer id="contact">
+  <p>John Babalola</p>
+  <p>
+    <a href="mailto:john@email.com">Email</a> |
+    <a href="https://github.com/john002013">GitHub</a> |
+    <a href="https://linkedin.com">LinkedIn</a>
+  </p>
+</footer>
 
-                <!-- VisionLock -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Mbn9JryDL0w?rel=0" 
-                            title="VisionLock Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>VisionLock</h3>
-                        <p>Computer Vision-Based Smart Security System using YOLO and FaceNet for real-time threat detection and facial recognition.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">YOLO</span>
-                            <span class="tech-tag">FaceNet</span>
-                            <span class="tech-tag">OpenCV</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/visionLock" target="_blank">View Code</a>
-                            <a href="https://youtu.be/Mbn9JryDL0w" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VisionAware Agent -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/QFjQbL6aZnM?rel=0" 
-                            title="VisionAware Agent Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>VisionAware Agent</h3>
-                        <p>Advanced AI agent with visual awareness capabilities for intelligent scene understanding and decision-making.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Computer Vision</span>
-                            <span class="tech-tag">AI Agents</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/VisionAware-Agent" target="_blank">View Code</a>
-                            <a href="https://youtube.com/shorts/QFjQbL6aZnM" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI DeepSearch Agent -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Fd65fdHaB30?rel=0" 
-                            title="AI DeepSearch Agent Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>AI DeepSearch Agent</h3>
-                        <p>Intelligent research assistant for academic purposes with advanced search and analysis capabilities.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Web Scraping</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/AI-DeepSearch-Agent" target="_blank">View Code</a>
-                            <a href="https://youtu.be/Fd65fdHaB30" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- VisionCount -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Wbef0n2PLcc?rel=0" 
-                            title="VisionCount Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>VisionCount</h3>
-                        <p>Real-time vehicle counting system for traffic analysis and road planning using computer vision.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">YOLO</span>
-                            <span class="tech-tag">Traffic Analysis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/VisionCount-Reliable-Traffic-Monitoring-Through-Vision." target="_blank">View Code</a>
-                            <a href="https://youtu.be/Wbef0n2PLcc" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ROS2 Edge-Avoiding Robot -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/lh8DTTLjENE?rel=0" 
-                            title="ROS2 Edge-Avoiding Robot Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>ROS2 Edge-Avoiding Robot</h3>
-                        <p>Autonomous robot using ROS2 with sensor feedback and differential drive control for edge avoidance.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">ROS2</span>
-                            <span class="tech-tag">Robotics</span>
-                            <span class="tech-tag">Sensors</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/ROS2-edge-avoiding-robot" target="_blank">View Code</a>
-                            <a href="https://youtu.be/lh8DTTLjENE" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CourierX -->
-                <div class="project-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/HUDVS1iXoNE?rel=0" 
-                            title="CourierX Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="project-info">
-                        <h3>CourierX</h3>
-                        <p>Full demonstration of autonomous delivery system with path planning and obstacle avoidance.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Autonomy</span>
-                            <span class="tech-tag">Path Planning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/john002013/courierX" target="_blank">View Code</a>
-                            <a href="https://youtu.be/HUDVS1iXoNE" target="_blank">Watch Video</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; 2026 John Babalola. All Rights Reserved.</p>
-            <p>Passionate about Robotics, AI, and STEM Education</p>
-        </div>
-    </footer>
 </body>
 </html>
