@@ -1,345 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Babalola | Robotics & Autonomous Systems</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Babalola - Robotics Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
 
-<style>
-:root {
-    --primary: #0a66c2;
-    --secondary: #e6f0fb;
-    --dark: #0f172a;
-    --light: #ffffff;
-    --gray: #475569;
-    --border: #e2e8f0;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 3px solid #0d47a1;
+        }
 
-body {
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-}
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            margin: 0 auto 1.5rem;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #1e88e5;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
 
-/* Layout */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
 
-section {
-    padding: 80px 0;
-}
+        .title {
+            font-size: 1.3rem;
+            color: #e3f2fd;
+            margin-bottom: 1rem;
+        }
 
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: var(--dark);
-}
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
 
-/* Hero */
-.hero {
-    background: linear-gradient(135deg, #f8fbff, #eaf2ff);
-    text-align: center;
-    padding: 120px 20px;
-}
+        .contact-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.hero h1 {
-    font-size: 3.2rem;
-    font-weight: 700;
-}
+        .contact-links a:hover {
+            color: #e3f2fd;
+        }
 
-.subtitle {
-    font-size: 1.3rem;
-    color: var(--primary);
-    margin: 10px 0;
-}
+        /* Navigation */
+        nav {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #e3f2fd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.description {
-    max-width: 900px;
-    margin: 20px auto 40px;
-    color: var(--gray);
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+        nav ul li {
+            margin: 0 1.5rem;
+        }
 
-.btn {
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-}
+        nav ul li a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-.btn-primary {
-    background: var(--primary);
-    color: white;
-}
+        nav ul li a:hover {
+            color: #1e88e5;
+        }
 
-.btn-secondary {
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e3f2fd;
+        }
 
-.btn-primary:hover,
-.btn-secondary:hover {
-    opacity: 0.9;
-}
+        h2 {
+            font-size: 2rem;
+            color: #1565c0;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
 
-/* About */
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    align-items: center;
-}
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #1e88e5, #1565c0);
+        }
 
-.profile-placeholder {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary);
-}
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+            color: #37474f;
+            line-height: 1.8;
+        }
 
-.about-text h3 {
-    margin-bottom: 15px;
-}
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
 
-.about-text p {
-    margin-bottom: 15px;
-    color: var(--gray);
-}
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-.research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+        .skill-tile {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid #1e88e5;
+            text-align: center;
+            transition: all 0.3s;
+        }
 
-.research-tag {
-    background: var(--secondary);
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--primary);
-}
+        .skill-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+            background: #bbdefb;
+        }
 
-/* Research Interests */
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
+        .skill-tile h3 {
+            color: #1565c0;
+            font-size: 1.1rem;
+            margin: 0;
+        }
 
-.research-card {
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 12px;
-    background: #fbfdff;
-}
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-.research-card h3 {
-    margin-bottom: 10px;
-    color: var(--primary);
-}
+        .project-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e3f2fd;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-/* Skills */
-.skills-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+            border-color: #1e88e5;
+        }
 
-.skill-category-card {
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 12px;
-    background: #fbfdff;
-    text-align: center;
-}
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background: #000;
+        }
 
-.skill-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-}
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: white;
+            font-size: 1.2rem;
+        }
 
-.skill-tile {
-    border: 1px solid var(--border);
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    background: white;
-}
+        .project-info {
+            padding: 1.2rem;
+        }
 
-/* Projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 35px;
-}
+        .project-info h3 {
+            color: #1565c0;
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+        }
 
-.project-card {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: white;
-}
+        .project-info p {
+            color: #37474f;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
 
-.video-container iframe {
-    width: 100%;
-    height: 220px;
-}
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.8rem;
+        }
 
-.project-info {
-    padding: 20px;
-}
+        .tech-tag {
+            background: #e3f2fd;
+            border: 1px solid #1e88e5;
+            color: #1565c0;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
 
-.project-info h3 {
-    margin-bottom: 10px;
-}
+        .project-links {
+            display: flex;
+            gap: 0.8rem;
+        }
 
-.project-info p {
-    color: var(--gray);
-}
+        .project-links a {
+            padding: 0.5rem 1rem;
+            background: #1e88e5;
+            border: 1px solid #1565c0;
+            border-radius: 6px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
 
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0;
-}
+        .project-links a:hover {
+            background: #1565c0;
+        }
 
-.tech-tag {
-    background: var(--secondary);
-    padding: 6px 12px;
-    border-radius: 14px;
-    font-size: 0.8rem;
-    color: var(--primary);
-}
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-.project-links a {
-    margin-right: 15px;
-    color: var(--primary);
-    font-weight: 600;
-    text-decoration: none;
-}
+        .certificate-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #e3f2fd;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-/* Footer */
-footer {
-    background: #f1f5f9;
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--gray);
-}
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+            border-color: #1e88e5;
+        }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .profile-placeholder {
-        margin: auto;
-    }
-}
-</style>
+        .certificate-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #e3f2fd;
+        }
+
+        .certificate-info {
+            padding: 1rem;
+        }
+
+        .certificate-info h3 {
+            color: #1565c0;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-info p {
+            color: #37474f;
+            font-size: 0.85rem;
+        }
+
+        /* CV Download Section */
+        .cv-download {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .cv-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+        }
+
+        .cv-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 136, 229, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #ffffff;
+            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="container">
+            <!-- Replace with: <img src="your-photo.jpg" alt="John Babalola" class="profile-img"> -->
+            <div class="profile-img">JB</div>
+            <h1>John Babalola</h1>
+            <p class="title">Aspiring Robotics Engineer | Researcher</p>
+            <div class="contact-links">
+                <a href="mailto:abidemibabalola23@gmail.com">✉️ abidemibabalola23@gmail.com</a>
+                <a href="tel:+2349168881444">📞 +234 916 888 1444</a>
+                <a href="https://github.com/john002013" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/john-babalola-1a12a72a7" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
 
-<section class="hero" id="home">
-    <h1>John Babalola</h1>
-    <p class="subtitle">Robotics & Autonomous Systems Researcher</p>
-    <p class="description">
-        Passionate about Safe Autonomous Systems, ROS2/SLAM, AI for Robotic Perception, and Human-Robot Interaction.
-        Final year student at the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology,
-        2nd best graduating student of class 2026, specializing in cutting-edge robotics research and innovation.
-    </p>
-    <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="CV.pdf" class="btn btn-secondary">Download CV</a>
-    </div>
-</section>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<section id="about">
-<div class="container">
-<h2 class="section-title">About Me</h2>
-<div class="about-container">
-<div class="profile-placeholder">JB</div>
-<div class="about-text">
-<h3>Robotics Researcher & Engineering Student</h3>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a final year student from the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology, currently standing as the 2nd best graduating student of the class of 2026. My research interests lie in precision agriculture, human-robot interaction, autonomous robots, and robot perception.
+                </p>
+                <p>
+                    During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
+                </p>
+                <p>
+                    My long-term goal is to become a professor of robotics, holding the belief that the best way to impact the world in a positive way is to teach robotics. It is interesting, and any child exposed to it at a young age will stay glued to it. I am committed to exposing, teaching, and giving back to my society in terms of STEM education, innovation, and research.
+                </p>
+            </div>
+        </div>
+    </section>
 
-<p>
-I am a final year student from the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology, currently standing as the 2nd best graduating student of the class of 2026. My research interests lie in precision agriculture, human-robot interaction, autonomous robots, and robot perception.
-</p>
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tile">
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>C++</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>ROS2</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>ROS2-AI Integration</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Embedded Systems</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Computer Vision</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>PyTorch</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Agentic AI</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>SLAM</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>MoveIt2</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>F3D to URDF</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>NAV2</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>MATLAB/Simulink</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Arduino</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Raspberry Pi</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>ESP32</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>CAD/CAM (Fusion360)</h3>
+                </div>
+                <div class="skill-tile">
+                    <h3>Laser Cutting</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<p>
-During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
-</p>
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Pick-and-Place Robot -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/LR88-cI8DbQ?rel=0" 
+                            title="Pick-and-Place Embodied AI Robot Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>Pick-and-Place Embodied AI Robot</h3>
+                        <p>ROS 2-based pick-and-place robotic system integrating MoveIt, LangChain agentic AI, and Gazebo Ignition for language-conditioned manipulation.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">ROS2</span>
+                            <span class="tech-tag">MoveIt2</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Gazebo</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/Pick-and-Place-Embodied-AI-Robot" target="_blank">View Code</a>
+                            <a href="https://youtu.be/LR88-cI8DbQ" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
-<p>
-My long-term goal is to become a professor of robotics, holding the belief that the best way to impact the world in a positive way is to teach robotics. I am committed to exposing, teaching, and giving back to my society in terms of STEM education, innovation, and research.
-</p>
+                <!-- VisionLock -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/Mbn9JryDL0w?rel=0" 
+                            title="VisionLock Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>VisionLock</h3>
+                        <p>Computer Vision-Based Smart Security System using YOLO and FaceNet for real-time threat detection and facial recognition.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">YOLO</span>
+                            <span class="tech-tag">FaceNet</span>
+                            <span class="tech-tag">OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/visionLock" target="_blank">View Code</a>
+                            <a href="https://youtu.be/Mbn9JryDL0w" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
-<div class="research-tags">
-<span class="research-tag">Autonomous Systems</span>
-<span class="research-tag">Human-Robot Interaction</span>
-<span class="research-tag">Precision Agriculture</span>
-<span class="research-tag">Robot Perception</span>
-<span class="research-tag">Embedded AI</span>
-</div>
+                <!-- VisionAware Agent -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/QFjQbL6aZnM?rel=0" 
+                            title="VisionAware Agent Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>VisionAware Agent</h3>
+                        <p>Advanced AI agent with visual awareness capabilities for intelligent scene understanding and decision-making.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">AI Agents</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/VisionAware-Agent" target="_blank">View Code</a>
+                            <a href="https://youtube.com/shorts/QFjQbL6aZnM" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
-</div>
-</div>
-</div>
-</section>
+                <!-- AI DeepSearch Agent -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/Fd65fdHaB30?rel=0" 
+                            title="AI DeepSearch Agent Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI DeepSearch Agent</h3>
+                        <p>Intelligent research assistant for academic purposes with advanced search and analysis capabilities.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Web Scraping</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/AI-DeepSearch-Agent" target="_blank">View Code</a>
+                            <a href="https://youtu.be/Fd65fdHaB30" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
-<section id="research">
-<div class="container">
-<h2 class="section-title">Research Interests</h2>
-<div class="research-grid">
-<div class="research-card"><h3>Robot Perception & Autonomous Systems</h3></div>
-<div class="research-card"><h3>Human-Robot Interaction (HRI)</h3></div>
-<div class="research-card"><h3>Space and Field Robotics</h3></div>
-<div class="research-card"><h3>Embodied AI & Agent-Based Robot Architectures</h3></div>
-<div class="research-card"><h3>Sensor Fusion & Edge AI for Autonomous Systems</h3></div>
-<div class="research-card"><h3>Agricultural & Resource-Constrained Robotics</h3></div>
-</div>
-</div>
-</section>
+                <!-- VisionCount -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/Wbef0n2PLcc?rel=0" 
+                            title="VisionCount Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>VisionCount</h3>
+                        <p>Real-time vehicle counting system for traffic analysis and road planning using computer vision.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">YOLO</span>
+                            <span class="tech-tag">Traffic Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/VisionCount-Reliable-Traffic-Monitoring-Through-Vision." target="_blank">View Code</a>
+                            <a href="https://youtu.be/Wbef0n2PLcc" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
-<footer>
-<p>© 2026 John Babalola | Robotics & Autonomous Systems</p>
-</footer>
+                <!-- ROS2 Edge-Avoiding Robot -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/lh8DTTLjENE?rel=0" 
+                            title="ROS2 Edge-Avoiding Robot Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>ROS2 Edge-Avoiding Robot</h3>
+                        <p>Autonomous robot using ROS2 with sensor feedback and differential drive control for edge avoidance.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ROS2</span>
+                            <span class="tech-tag">Robotics</span>
+                            <span class="tech-tag">Sensors</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/ROS2-edge-avoiding-robot" target="_blank">View Code</a>
+                            <a href="https://youtu.be/lh8DTTLjENE" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- CourierX -->
+                <div class="project-card">
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/HUDVS1iXoNE?rel=0" 
+                            title="CourierX Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="project-info">
+                        <h3>CourierX</h3>
+                        <p>Full demonstration of autonomous delivery system with path planning and obstacle avoidance.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Autonomy</span>
+                            <span class="tech-tag">Path Planning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/john002013/courierX" target="_blank">View Code</a>
+                            <a href="https://youtu.be/HUDVS1iXoNE" target="_blank">Watch Video</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <div class="container">
+            <h2>Certificates & Achievements</h2>
+            <div class="certificates-grid">
+                <!-- Certificate 1 - Replace with your actual certificates -->
+                <div class="certificate-card">
+                    <img src="certificate1.jpg" alt="Certificate 1" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Certificate Name</h3>
+                        <p>Issuing Organization - Year</p>
+                    </div>
+                </div>
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+                    <img src="certificate2.jpg" alt="Certificate 2" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Certificate Name</h3>
+                        <p>Issuing Organization - Year</p>
+                    </div>
+                </div>
+                <!-- Certificate 3 -->
+                <div class="certificate-card">
+                    <img src="certificate3.jpg" alt="Certificate 3" class="certificate-img">
+                    <div class="certificate-info">
+                        <h3>Certificate Name</h3>
+                        <p>Issuing Organization - Year</p>
+                    </div>
+                </div>
+                <!-- Add more certificates as needed -->
+            </div>
+            
+            <div class="cv-download">
+                <a href="your-cv.pdf" download class="cv-button">📄 Download My CV</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2026 John Babalola. All Rights Reserved.</p>
+            <p>Passionate about Robotics, AI, and STEM Education</p>
+        </div>
+    </footer>
 </body>
 </html>
