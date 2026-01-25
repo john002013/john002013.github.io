@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>John Babalola | Robotics & Autonomous Systems</title>
+  <title>Babalola John Abidemi | Robotics & Autonomous Systems</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,367 +12,326 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #2563eb;
+      --secondary: #1e40af;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #1f2937;
-      line-height: 1.65;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
+
+    a { color: var(--primary); text-decoration: none; }
 
     .container {
       max-width: 1200px;
       margin: auto;
-      padding: 0 2rem;
+      padding: 4rem 1.5rem;
     }
 
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      background: #1e3a8a;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    header {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-container {
-      max-width: 1300px;
-      margin: auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #1e3a8a, #1e40af);
-      color: #fff;
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
+    header h1 {
+      font-size: 2.8rem;
       font-weight: 700;
     }
 
-    .hero p {
-      max-width: 850px;
-      margin: 1.5rem auto;
-      font-size: 1.1rem;
-      opacity: 0.95;
+    header p {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      max-width: 800px;
     }
 
-    .hero-buttons {
-      margin-top: 2rem;
+    .cta {
+      margin-top: 1.5rem;
       display: flex;
-      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 0.9rem 2rem;
+      padding: 0.65rem 1.2rem;
       border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
+      border: 1px solid var(--primary);
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .btn-primary {
-      background: #3b82f6;
+    .btn.primary {
+      background: var(--primary);
       color: #fff;
     }
 
-    .btn-secondary {
-      border: 2px solid #fff;
-      color: #fff;
-    }
-
-    /* SECTION */
-    section {
-      padding: 5rem 0;
+    .btn.secondary {
+      background: #fff;
+      color: var(--primary);
     }
 
     .section-title {
-      text-align: center;
       font-size: 2.3rem;
-      color: #1e3a8a;
-      margin-bottom: 3rem;
-      position: relative;
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
     }
 
-    .section-title::after {
-      content: "";
-      width: 70px;
-      height: 4px;
-      background: #3b82f6;
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* ABOUT */
-    .about-grid {
+    .card-grid {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .profile {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      background: linear-gradient(135deg,#3b82f6,#1e40af);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: #fff;
-      margin: auto;
-    }
-
-    .about p {
-      margin-bottom: 1.2rem;
-      color: #374151;
-    }
-
-    /* CARDS */
-    .grid-4, .grid-3 {
-      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
-    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); }
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); }
-
     .card {
-      background: #fff;
-      padding: 2rem;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      text-align: center;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card i {
-      font-size: 2.2rem;
-      color: #2563eb;
+    .icon {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
       margin-bottom: 1rem;
     }
 
-    .card h3 {
-      margin-bottom: 0.8rem;
-      color: #1e3a8a;
-    }
-
-    /* PROJECTS */
-    .project-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .video {
-      position: relative;
-      padding-top: 56.25%;
-    }
-
-    .video iframe {
+    .video-container iframe {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       border: none;
     }
 
-    .project-content {
-      padding: 1.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tags {
+    .tech-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
       margin: 0.8rem 0;
     }
 
-    .tag {
+    .tech-tag {
       background: #eff6ff;
-      color: #1e40af;
+      border: 1px solid var(--primary);
+      color: var(--secondary);
+      padding: 0.3rem 0.7rem;
+      border-radius: 14px;
       font-size: 0.75rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 20px;
+      font-weight: 500;
     }
 
-    .links {
+    .project-links {
       margin-top: auto;
       display: flex;
       gap: 0.6rem;
     }
 
-    .links a {
-      background: #1e3a8a;
-      color: #fff;
-      padding: 0.5rem 1.1rem;
+    .project-links a {
+      padding: 0.45rem 0.9rem;
+      background: var(--secondary);
+      color: white;
       border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
-    /* FOOTER */
     footer {
-      background: #1e3a8a;
-      color: #fff;
+      border-top: 1px solid var(--border);
+      padding: 2rem;
       text-align: center;
-      padding: 3rem 1rem;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 0.6rem;
-    }
-
-    @media(max-width:768px){
-      .about-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.2rem; }
+      color: var(--muted);
     }
   </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav-container">
-    <div class="logo">John Babalola</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<header>
+  <div class="container">
+    <h1>Babalola John Abidemi</h1>
+    <p>
+      Final-year Electrical & Electronic Engineering student and robotics researcher with a lifelong
+      passion for autonomous systems, embodied AI, and human–robot interaction. Aspiring robotics
+      professor committed to impactful research, mentorship, and STEM access.
+    </p>
 
-<section class="hero">
-  <h1>Robotics & Autonomous Systems Researcher</h1>
+    <div class="cta">
+      <a href="#projects" class="btn primary"><i class="fa-solid fa-diagram-project"></i> View Projects</a>
+      <a href="John_Babalola_CV.pdf" class="btn secondary" download><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+    </div>
+  </div>
+</header>
+
+<section class="container">
+  <h2 class="section-title">About Me</h2>
   <p>
-    Focused on Robot Perception, Autonomous Systems, Embodied AI, and
-    Human–Robot Interaction. Aspiring robotics professor and researcher.
+    I am a final-year student of Electrical and Electronic Engineering at Ladoke Akintola University
+    of Technology, currently ranked as the second-best graduating student of my cohort. My passion
+    for robotics began at the age of eight, building simple robots from scraps, and later matured
+    into a focused academic and research pursuit after laboratory exposure.
   </p>
-  <div class="hero-buttons">
-    <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-    <a class="btn btn-secondary" href="John_Babalola_CV.pdf" download><i class="fa-solid fa-file-pdf"></i> Download CV</a>
+  <p>
+    I have worked extensively across robotics software and hardware stacks, including ROS 2,
+    embedded systems, computer vision, deep learning, and agent-based AI. My long-term goal is to
+    become a professor of robotics and contribute to society through education, research, and
+    accessible innovation.
+  </p>
+</section>
+
+<section class="container">
+  <h2 class="section-title">Research Interests</h2>
+  <div class="card-grid">
+    <div class="card"><div class="icon"><i class="fa-solid fa-eye"></i></div><h3>Robot Perception & Autonomy</h3></div>
+    <div class="card"><div class="icon"><i class="fa-solid fa-people-arrows"></i></div><h3>Human–Robot Interaction</h3></div>
+    <div class="card"><div class="icon"><i class="fa-solid fa-brain"></i></div><h3>Embodied AI & Agent Architectures</h3></div>
+    <div class="card"><div class="icon"><i class="fa-solid fa-microchip"></i></div><h3>Sensor Fusion & Edge AI</h3></div>
   </div>
 </section>
 
-<section id="about">
-  <div class="container about-grid">
-    <div class="profile">JB</div>
-    <div class="about">
-      <h2 class="section-title">About Me</h2>
-      <p>
-        Final-year Electrical & Electronic Engineering student with a deep
-        commitment to robotics research and education. Experienced in ROS 2,
-        SLAM, computer vision, embedded systems, and AI-driven autonomy.
-      </p>
-      <p>
-        My long-term goal is to pursue a PhD in Robotics and become a professor,
-        advancing autonomous systems and mentoring the next generation.
-      </p>
+<section id="projects" class="container">
+  <h2 class="section-title">Selected Projects (with Demos)</h2>
+
+  <div class="card-grid">
+
+    <!-- Pick and Place -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/LR88-cI8DbQ" allowfullscreen></iframe>
+      </div>
+      <h3>Pick-and-Place Embodied AI Robot</h3>
+      <p>ROS 2 pick-and-place system integrating MoveIt 2, LangChain-based agentic AI, and Gazebo Ignition for language-conditioned manipulation.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">ROS2</span><span class="tech-tag">MoveIt2</span><span class="tech-tag">LangChain</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/Pick-and-Place-Embodied-AI-Robot" target="_blank">Code</a>
+        <a href="https://youtu.be/LR88-cI8DbQ" target="_blank">Video</a>
+      </div>
     </div>
-  </div>
-</section>
 
-<section id="research">
-  <div class="container">
-    <h2 class="section-title">Research Interests</h2>
-    <div class="grid-4">
-      <div class="card"><i class="fa-solid fa-eye"></i><h3>Robot Perception</h3></div>
-      <div class="card"><i class="fa-solid fa-robot"></i><h3>Autonomous Systems</h3></div>
-      <div class="card"><i class="fa-solid fa-brain"></i><h3>Embodied & Agent AI</h3></div>
-      <div class="card"><i class="fa-solid fa-seedling"></i><h3>Agricultural Robotics</h3></div>
+    <!-- VisionLock -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Mbn9JryDL0w" allowfullscreen></iframe>
+      </div>
+      <h3>VisionLock</h3>
+      <p>Computer-vision-based smart security system using YOLO and FaceNet for real-time threat detection and facial recognition.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">YOLO</span><span class="tech-tag">FaceNet</span><span class="tech-tag">OpenCV</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/visionLock" target="_blank">Code</a>
+        <a href="https://youtu.be/Mbn9JryDL0w" target="_blank">Video</a>
+      </div>
     </div>
-  </div>
-</section>
 
-<section id="skills">
-  <div class="container">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="grid-4">
-      <div class="card"><i class="fa-solid fa-code"></i><h3>Python, C++, MATLAB</h3></div>
-      <div class="card"><i class="fa-solid fa-microchip"></i><h3>ROS 2, SLAM, Nav2</h3></div>
-      <div class="card"><i class="fa-solid fa-camera"></i><h3>Computer Vision</h3></div>
-      <div class="card"><i class="fa-solid fa-gears"></i><h3>Embedded Systems</h3></div>
+    <!-- VisionAware -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/QFjQbL6aZnM" allowfullscreen></iframe>
+      </div>
+      <h3>VisionAware Agent</h3>
+      <p>AI agent with visual awareness for scene understanding and decision-making.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Computer Vision</span><span class="tech-tag">AI Agents</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/VisionAware-Agent" target="_blank">Code</a>
+        <a href="https://youtube.com/shorts/QFjQbL6aZnM" target="_blank">Video</a>
+      </div>
     </div>
-  </div>
-</section>
 
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title">Featured Projects</h2>
+    <!-- DeepSearch -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Fd65fdHaB30" allowfullscreen></iframe>
+      </div>
+      <h3>AI DeepSearch Agent</h3>
+      <p>Autonomous research assistant for academic literature search and analysis.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">NLP</span><span class="tech-tag">Web Automation</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/AI-DeepSearch-Agent" target="_blank">Code</a>
+        <a href="https://youtu.be/Fd65fdHaB30" target="_blank">Video</a>
+      </div>
+    </div>
 
-    <div class="grid-3">
-      <div class="project-card">
-        <div class="video">
-          <iframe src="https://www.youtube.com/embed/LR88-cI8DbQ" allowfullscreen></iframe>
-        </div>
-        <div class="project-content">
-          <h3>Embodied AI Pick-and-Place Robot</h3>
-          <div class="tags">
-            <span class="tag">ROS2</span><span class="tag">MoveIt2</span><span class="tag">AI Agents</span>
-          </div>
-          <div class="links">
-            <a href="https://github.com/john002013/Pick-and-Place-Embodied-AI-Robot">Code</a>
-            <a href="https://youtu.be/LR88-cI8DbQ">Video</a>
-          </div>
-        </div>
+    <!-- VisionCount -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Wbef0n2PLcc" allowfullscreen></iframe>
+      </div>
+      <h3>VisionCount</h3>
+      <p>Real-time vehicle counting and traffic analysis using computer vision.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">YOLO</span><span class="tech-tag">OpenCV</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/VisionCount-Reliable-Traffic-Monitoring-Through-Vision." target="_blank">Code</a>
+        <a href="https://youtu.be/Wbef0n2PLcc" target="_blank">Video</a>
+      </div>
+    </div>
+
+    <!-- Edge Avoiding -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/lh8DTTLjENE" allowfullscreen></iframe>
+      </div>
+      <h3>ROS2 Edge-Avoiding Robot</h3>
+      <p>Autonomous mobile robot using ROS 2 and sensor feedback for edge avoidance.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">ROS2</span><span class="tech-tag">Robotics</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013/ROS2-edge-avoiding-robot" target="_blank">Code</a>
+        <a href="https://youtu.be/lh8DTTLjENE" target="_blank">Video</a>
+      </div>
+    </div>
+
+    <!-- CourierX -->
+    <div class="card">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/HUDVS1iXoNE" allowfullscreen></iframe>
+      </div>
+      <h3>CourierX Autonomous Delivery Robot</h3>
+      <p>Autonomous courier robot prototype focused on navigation, perception, and task execution.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Robotics</span><span class="tech-tag">Autonomy</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/john002013" target="_blank">Code</a>
+        <a href="https://youtu.be/HUDVS1iXoNE" target="_blank">Video</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<footer id="contact">
-  <p>John Babalola</p>
-  <p>
-    <a href="mailto:john@email.com">Email</a> |
-    <a href="https://github.com/john002013">GitHub</a> |
-    <a href="https://linkedin.com">LinkedIn</a>
-  </p>
+<footer>
+  © 2026 Babalola John Abidemi · Robotics & Autonomous Systems
 </footer>
 
 </body>
