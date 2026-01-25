@@ -1,345 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Babalola | Robotics & Autonomous Systems</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-    --primary: #0a66c2;
-    --secondary: #e6f0fb;
-    --dark: #0f172a;
-    --light: #ffffff;
-    --gray: #475569;
-    --border: #e2e8f0;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
-
-body {
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.7;
-}
-
-/* Layout */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-section {
-    padding: 80px 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: var(--dark);
-}
-
 /* Hero */
 .hero {
-    background: linear-gradient(135deg, #f8fbff, #eaf2ff);
+    background: linear-gradient(135deg, #0a66c2, #0047a1); /* Sleek blue gradient */
     text-align: center;
     padding: 120px 20px;
+    color: #ffffff; /* Light text for contrast */
+    clip-path: ellipse(100% 90% at 50% 0); /* Optional modern curved bottom */
 }
 
 .hero h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 15px;
 }
 
-.subtitle {
-    font-size: 1.3rem;
-    color: var(--primary);
-    margin: 10px 0;
+.hero .subtitle {
+    font-size: 1.4rem;
+    color: #cce0ff;
+    margin-bottom: 20px;
 }
 
-.description {
-    max-width: 900px;
-    margin: 20px auto 40px;
-    color: var(--gray);
+.hero .description {
+    max-width: 850px;
+    margin: 0 auto 40px;
+    color: #e0e6f0;
+    line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
-}
-
-.btn {
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
 }
 
 .btn-primary {
-    background: var(--primary);
-    color: white;
+    background: #ffffff;
+    color: #0a66c2;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .btn-secondary {
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-    opacity: 0.9;
-}
-
-/* About */
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.profile-placeholder {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: var(--secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary);
-}
-
-.about-text h3 {
-    margin-bottom: 15px;
-}
-
-.about-text p {
-    margin-bottom: 15px;
-    color: var(--gray);
-}
-
-.research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.research-tag {
-    background: var(--secondary);
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: var(--primary);
-}
-
-/* Research Interests */
-.research-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.research-card {
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 12px;
-    background: #fbfdff;
-}
-
-.research-card h3 {
-    margin-bottom: 10px;
-    color: var(--primary);
-}
-
-/* Skills */
-.skills-categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
-}
-
-.skill-category-card {
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 12px;
-    background: #fbfdff;
-    text-align: center;
-}
-
-.skill-icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 15px;
-}
-
-.skill-tile {
-    border: 1px solid var(--border);
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
-    background: white;
-}
-
-/* Projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 35px;
-}
-
-.project-card {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: white;
-}
-
-.video-container iframe {
-    width: 100%;
-    height: 220px;
-}
-
-.project-info {
-    padding: 20px;
-}
-
-.project-info h3 {
-    margin-bottom: 10px;
-}
-
-.project-info p {
-    color: var(--gray);
-}
-
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 12px 0;
-}
-
-.tech-tag {
-    background: var(--secondary);
-    padding: 6px 12px;
-    border-radius: 14px;
-    font-size: 0.8rem;
-    color: var(--primary);
-}
-
-.project-links a {
-    margin-right: 15px;
-    color: var(--primary);
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
     font-weight: 600;
-    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
-/* Footer */
-footer {
-    background: #f1f5f9;
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--gray);
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #0a66c2;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .profile-placeholder {
-        margin: auto;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<section class="hero" id="home">
-    <h1>John Babalola</h1>
-    <p class="subtitle">Robotics & Autonomous Systems Researcher</p>
-    <p class="description">
-        Passionate about Safe Autonomous Systems, ROS2/SLAM, AI for Robotic Perception, and Human-Robot Interaction.
-        Final year student at the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology,
-        2nd best graduating student of class 2026, specializing in cutting-edge robotics research and innovation.
-    </p>
-    <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="CV.pdf" class="btn btn-secondary">Download CV</a>
-    </div>
-</section>
-
-<section id="about">
-<div class="container">
-<h2 class="section-title">About Me</h2>
-<div class="about-container">
-<div class="profile-placeholder">JB</div>
-<div class="about-text">
-<h3>Robotics Researcher & Engineering Student</h3>
-
-<p>
-I am a final year student from the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology, currently standing as the 2nd best graduating student of the class of 2026. My research interests lie in precision agriculture, human-robot interaction, autonomous robots, and robot perception.
-</p>
-
-<p>
-During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
-</p>
-
-<p>
-My long-term goal is to become a professor of robotics, holding the belief that the best way to impact the world in a positive way is to teach robotics. I am committed to exposing, teaching, and giving back to my society in terms of STEM education, innovation, and research.
-</p>
-
-<div class="research-tags">
-<span class="research-tag">Autonomous Systems</span>
-<span class="research-tag">Human-Robot Interaction</span>
-<span class="research-tag">Precision Agriculture</span>
-<span class="research-tag">Robot Perception</span>
-<span class="research-tag">Embedded AI</span>
-</div>
-
-</div>
-</div>
-</div>
-</section>
-
-<section id="research">
-<div class="container">
-<h2 class="section-title">Research Interests</h2>
-<div class="research-grid">
-<div class="research-card"><h3>Robot Perception & Autonomous Systems</h3></div>
-<div class="research-card"><h3>Human-Robot Interaction (HRI)</h3></div>
-<div class="research-card"><h3>Space and Field Robotics</h3></div>
-<div class="research-card"><h3>Embodied AI & Agent-Based Robot Architectures</h3></div>
-<div class="research-card"><h3>Sensor Fusion & Edge AI for Autonomous Systems</h3></div>
-<div class="research-card"><h3>Agricultural & Resource-Constrained Robotics</h3></div>
-</div>
-</div>
-</section>
-
-<footer>
-<p>© 2026 John Babalola | Robotics & Autonomous Systems</p>
-</footer>
-
-</body>
-</html>
