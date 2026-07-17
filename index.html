@@ -4,522 +4,943 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John Babalola - Robotics Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="John Babalola - Robotics Engineer. Precision agriculture, human-robot interaction, autonomous robots, and robot perception.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg: #ffffff;
+            --bg-warm: #fffbf5;
+            --bg-card: #ffffff;
+            --bg-section: #f8f9fc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-light: #3b82f6;
+            --orange: #f97316;
+            --orange-light: #fb923c;
+            --orange-dark: #ea580c;
+            --amber: #f59e0b;
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #f97316 100%);
+            --gradient-orange: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+            --gradient-blue: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
+            --shadow-orange: 0 8px 30px rgba(249, 115, 22, 0.2);
+            --shadow-blue: 0 8px 30px rgba(37, 99, 235, 0.2);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background: #ffffff;
-            color: #2c3e50;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
+        ::selection { background: rgba(249, 115, 22, 0.15); color: var(--orange-dark); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            transition: var(--transition);
+        }
+        nav.scrolled { background: rgba(255,255,255,0.95); box-shadow: var(--shadow); }
+
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-            padding: 3rem 0;
-            text-align: center;
-            border-bottom: 3px solid #0d47a1;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid #ffffff;
-            margin: 0 auto 1.5rem;
-            background: #ffffff;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #1e88e5;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: 72px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-        }
-
-        .title {
+        .logo {
+            font-weight: 800;
             font-size: 1.3rem;
-            color: #e3f2fd;
-            margin-bottom: 1rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .contact-links a {
-            color: #ffffff;
+            color: var(--text-primary);
             text-decoration: none;
-            transition: color 0.3s;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
-        .contact-links a:hover {
-            color: #e3f2fd;
+        .logo-dot {
+            width: 10px; height: 10px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            animation: pulse 2.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
         }
 
-        /* Navigation */
-        nav {
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid #e3f2fd;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2.5px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
-        nav ul {
-            list-style: none;
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 140px 2rem 100px;
+            background: var(--bg);
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 40%, rgba(37, 99, 235, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 85% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 50% 90%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+            background-size: 70px 70px;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(249,115,22,0.08) 100%);
+            border: 1px solid rgba(37,99,235,0.15);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--blue-dark);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .hero-badge .status {
+            width: 7px; height: 7px;
+            background: var(--orange);
+            border-radius: 50%;
+            animation: pulse 2.5s infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+        }
+        .hero h1 .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .hero-stats {
             display: flex;
             justify-content: center;
-            padding: 1rem 0;
+            gap: 3.5rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
-
-        nav ul li {
-            margin: 0 1.5rem;
+        .stat { text-align: center; }
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+            margin-top: 0.3rem;
         }
 
-        nav ul li a {
-            color: #1565c0;
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.25), 0 4px 20px rgba(249, 115, 22, 0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.35), 0 8px 30px rgba(249, 115, 22, 0.25);
+        }
+        .btn-secondary {
+            background: white;
+            color: var(--text-primary);
+            border: 2px solid #e2e8f0;
+            font-weight: 600;
+        }
+        .btn-secondary:hover {
+            border-color: var(--orange);
+            color: var(--orange-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
         }
 
-        nav ul li a:hover {
-            color: #1e88e5;
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            animation: bounce 2.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
         }
 
         /* Sections */
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid #e3f2fd;
-        }
+        section { padding: 100px 2rem; position: relative; }
+        .container { max-width: 1150px; margin: 0 auto; }
 
-        h2 {
-            font-size: 2rem;
-            color: #1565c0;
-            margin-bottom: 2rem;
-            text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
+        .section-header { margin-bottom: 4rem; text-align: center; }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #1e88e5, #1565c0);
+        .section-title {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
-
-        /* About Section */
-        .about-content {
-            max-width: 900px;
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 600px;
             margin: 0 auto;
-            text-align: justify;
-            color: #37474f;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.3rem;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
+        .about-text strong { color: var(--text-primary); font-weight: 700; }
 
-        .about-content p {
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        .about-card h3 {
+            font-size: 1.15rem;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+        }
+        .about-card h3 .icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(249,115,22,0.1) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
-        /* Skills Section */
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .timeline-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .timeline-dot {
+            width: 14px; height: 14px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            margin-top: 0.35rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+        }
+        .timeline-content h4 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--text-primary); }
+        .timeline-content .place { color: var(--blue); font-size: 0.9rem; margin-bottom: 0.2rem; font-weight: 600; }
+        .timeline-content .time { color: var(--text-muted); font-size: 0.85rem; }
+
+        /* Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.2rem;
         }
-
         .skill-tile {
-            background: #e3f2fd;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 2px solid #1e88e5;
+            background: var(--bg-card);
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            padding: 1.3rem 1rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
         }
-
+        .skill-tile::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
         .skill-tile:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-            background: #bbdefb;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
         }
-
+        .skill-tile:hover::before { opacity: 1; }
         .skill-tile h3 {
-            color: #1565c0;
-            font-size: 1.1rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-weight: 700;
             margin: 0;
         }
 
-        /* Projects Section */
+        /* Projects */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
         }
-
         .project-card {
-            background: #ffffff;
-            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 2px solid #e3f2fd;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
         }
-
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-            border-color: #1e88e5;
+            border-color: var(--orange);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
         }
 
         .video-container {
             position: relative;
             width: 100%;
             padding-top: 56.25%;
-            background: #000;
+            background: #0f172a;
+            overflow: hidden;
         }
-
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
 
-        .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
-            color: white;
-            font-size: 1.2rem;
+            flex-direction: column;
         }
-
-        .project-info {
-            padding: 1.2rem;
-        }
-
-        .project-info h3 {
-            color: #1565c0;
-            font-size: 1.1rem;
+        .project-content h3 {
+            font-size: 1.15rem;
             margin-bottom: 0.6rem;
+            color: var(--text-primary);
+            font-weight: 700;
         }
-
-        .project-info p {
-            color: #37474f;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .project-content p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+            flex: 1;
         }
 
         .tech-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
-
         .tech-tag {
-            background: #e3f2fd;
-            border: 1px solid #1e88e5;
-            color: #1565c0;
-            padding: 0.25rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
+            background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(249,115,22,0.08) 100%);
+            border: 1px solid rgba(37,99,235,0.12);
+            color: var(--blue-dark);
+            padding: 0.3rem 0.7rem;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .project-links {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
-
         .project-links a {
-            padding: 0.5rem 1rem;
-            background: #1e88e5;
-            border: 1px solid #1565c0;
-            border-radius: 6px;
+            padding: 0.55rem 1.1rem;
+            background: var(--gradient-blue);
+            border-radius: var(--radius-sm);
             color: #ffffff;
             text-decoration: none;
-            font-size: 0.85rem;
-            transition: all 0.3s;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
-
         .project-links a:hover {
-            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-blue);
+        }
+        .project-links a:last-child {
+            background: var(--gradient-orange);
+        }
+        .project-links a:last-child:hover {
+            box-shadow: var(--shadow-orange);
         }
 
-        /* Certificates Section */
+        /* Certificates */
         .certificates-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
         }
-
         .certificate-card {
-            background: #ffffff;
-            border-radius: 10px;
+            background: var(--bg-card);
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 2px solid #e3f2fd;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
         }
-
         .certificate-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
-            border-color: #1e88e5;
+            box-shadow: var(--shadow-lg);
+            border-color: var(--blue);
         }
-
         .certificate-img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
-            background: #e3f2fd;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: block;
         }
-
-        .certificate-info {
-            padding: 1rem;
-        }
-
+        .certificate-info { padding: 1.2rem; }
         .certificate-info h3 {
-            color: #1565c0;
+            color: var(--text-primary);
             font-size: 1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
         }
-
         .certificate-info p {
-            color: #37474f;
+            color: var(--text-muted);
             font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        /* CV Download Section */
-        .cv-download {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
+        /* CV Download */
+        .cv-download { text-align: center; margin-top: 3rem; }
         .cv-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            background: var(--gradient-primary);
             color: #ffffff;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+            border-radius: 100px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.25), 0 6px 25px rgba(249, 115, 22, 0.15);
         }
-
         .cv-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(30, 136, 229, 0.4);
+            box-shadow: 0 10px 35px rgba(37, 99, 235, 0.35), 0 10px 35px rgba(249, 115, 22, 0.25);
         }
+
+        /* Philosophy */
+        .philosophy {
+            background: linear-gradient(135deg, #fffbf5 0%, #f0f7ff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .philosophy::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -20%;
+            width: 60%; height: 200%;
+            background: radial-gradient(ellipse, rgba(249,115,22,0.04) 0%, transparent 70%);
+        }
+        .philosophy::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 60%; height: 200%;
+            background: radial-gradient(ellipse, rgba(37,99,235,0.04) 0%, transparent 70%);
+        }
+        .philosophy-quote {
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            font-weight: 300;
+            font-style: italic;
+            color: var(--text-secondary);
+            max-width: 850px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        .philosophy-quote strong {
+            color: var(--text-primary);
+            font-weight: 700;
+            background: linear-gradient(180deg, transparent 60%, rgba(249,115,22,0.2) 60%);
+        }
+        .philosophy-author {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .contact-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-card);
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .contact-link:hover {
+            border-color: var(--orange);
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+        .contact-link .icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(249,115,22,0.1) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contact-link .info { display: flex; flex-direction: column; }
+        .contact-link .label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+        .contact-link .value { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
+
+        .contact-form {
+            background: var(--bg-card);
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+            background: white;
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
 
         /* Footer */
         footer {
+            padding: 3rem 2rem;
             text-align: center;
-            padding: 2rem 0;
-            color: #ffffff;
-            background: linear-gradient(135deg, #1e88e5 0%, #1565c0 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
+        footer a { color: var(--orange-light); text-decoration: none; font-weight: 600; }
+        footer a:hover { color: white; }
+        footer p:first-child { color: #e2e8f0; font-weight: 600; margin-bottom: 0.5rem; }
 
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-
-            .certificates-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-stats { gap: 2rem; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            section { padding: 70px 1.5rem; }
+            .hero { padding: 110px 1.5rem 70px; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 72px; left: 0; right: 0;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            z-index: 999;
+            box-shadow: var(--shadow-lg);
+        }
+        .mobile-menu.active { display: block; }
+        .mobile-menu a {
+            display: block;
+            padding: 0.85rem 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--orange); }
     </style>
+<base target="_blank">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <!-- Replace with: <img src="your-photo.jpg" alt="John Babalola" class="profile-img"> -->
-            <img src="profile.jpg" alt="John Babalola" class="profile-img">
-            <h1>John Babalola</h1>
-            <p class="title">Aspiring Robotics Engineer | Researcher</p>
-            <div class="contact-links">
-                <a href="mailto:abidemibabalola23@gmail.com">✉️ abidemibabalola23@gmail.com</a>
-                <a href="tel:+2349168881444">📞 +234 916 888 1444</a>
-                <a href="https://github.com/john002013" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/john-babalola-1a12a72a7" target="_blank">LinkedIn</a>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-dot"></span>
+                John Babalola
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="#projects" onclick="toggleMenu()">Projects</a>
+        <a href="#certificates" onclick="toggleMenu()">Certificates</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="status"></span>
+                Open to Research Opportunities
+            </div>
+            <h1>
+                Building the Future of<br>
+                <span class="highlight">Robotics & AI</span>
+            </h1>
+            <p class="hero-subtitle">
+                Final-year Electrical Engineering student passionate about precision agriculture,
+                human-robot interaction, autonomous systems, and robot perception.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">2nd</div>
+                    <div class="stat-label">Best Graduating</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8+</div>
+                    <div class="stat-label">Years Building</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2026</div>
+                    <div class="stat-label">Graduating Class</div>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work →</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
-    </header>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <span>↓</span>
+        </div>
+    </section>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
+    <!-- About -->
     <section id="about">
         <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    I am a final year student from the Department of Electrical and Electronic Engineering, Ladoke Akintola University of Technology, currently standing as the 2nd best graduating student of my department for class of 2026. My research interests lie in precision agriculture, human-robot interaction, autonomous robots, and robot perception.
-                </p>
-                <p>
-                    During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
-                </p>
-                <p>
-                    My long-term goal is to become a professor of robotics, holding the belief that the best way to impact the world in a positive way is to teach robotics. It is interesting, and any child exposed to it at a young age will stay glued to it. I am committed to exposing, teaching, and giving back to my society in terms of STEM education, innovation, and research.
-                </p>
+            <div class="section-header fade-in">
+                <div class="section-label">01 / About</div>
+                <h2 class="section-title">From Scrap Robots to<br>Cutting-Edge Research</h2>
+                <p class="section-desc">My journey in robotics began at age 8, building robots from scraps. Today, I'm preparing to shape the next generation of roboticists.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>
+                        I am a final year student from the <strong>Department of Electrical and Electronic Engineering</strong>,
+                        Ladoke Akintola University of Technology, currently standing as the <strong>2nd best graduating student</strong>
+                        of my department for the class of 2026.
+                    </p>
+                    <p>
+                        During the course of my undergraduate journey, and having developed a passion for robotics starting from the age of 8 where I built robots using scraps, I immersed myself in many self-paced learning curves. I learned ROS (Robot Operating System), Embedded Systems, Computer Vision, PyTorch advanced deep learning techniques, technical report documentation, and more.
+                    </p>
+                    <p>
+                        My long-term goal is to become a <strong>professor of robotics</strong>, holding the belief that the best way
+                        to impact the world in a positive way is to teach robotics. It is interesting, and any child exposed to it at a young age will stay glued to it. I am committed to exposing, teaching, and giving back to my society in terms of <strong>STEM education</strong>, <strong>innovation</strong>, and <strong>research</strong>.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <h3><span class="icon">🎓</span> Education</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>B.Eng. Electrical & Electronic Engineering</h4>
+                            <div class="place">Ladoke Akintola University of Technology</div>
+                            <div class="time">2021 — 2026 • 2nd Best Graduating Student</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>Self-Directed Robotics & AI Studies</h4>
+                            <div class="place">Online Platforms & Research Papers</div>
+                            <div class="time">2016 — Present • Continuous Learning</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="skills">
+    <!-- Skills -->
+    <section id="skills" style="background: linear-gradient(180deg, #f8f9fc 0%, #ffffff 100%);">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <div class="section-header fade-in">
+                <div class="section-label">02 / Expertise</div>
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-desc">Tools and technologies I've mastered through hands-on projects and self-directed learning.</p>
+            </div>
             <div class="skills-grid">
-                <div class="skill-tile">
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>C++</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>ROS2</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>ROS2-AI Integration</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Embedded Systems</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Computer Vision</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>PyTorch</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Agentic AI</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>SLAM</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>MoveIt2</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>F3D to URDF</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>NAV2</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>MATLAB/Simulink</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Arduino</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Raspberry Pi</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>ESP32</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>CAD/CAM (Fusion360)</h3>
-                </div>
-                <div class="skill-tile">
-                    <h3>Laser Cutting</h3>
-                </div>
+                <div class="skill-tile fade-in"><h3>Python</h3></div>
+                <div class="skill-tile fade-in"><h3>C++</h3></div>
+                <div class="skill-tile fade-in"><h3>ROS2</h3></div>
+                <div class="skill-tile fade-in"><h3>ROS2-AI Integration</h3></div>
+                <div class="skill-tile fade-in"><h3>Embedded Systems</h3></div>
+                <div class="skill-tile fade-in"><h3>Computer Vision</h3></div>
+                <div class="skill-tile fade-in"><h3>PyTorch</h3></div>
+                <div class="skill-tile fade-in"><h3>Agentic AI</h3></div>
+                <div class="skill-tile fade-in"><h3>SLAM</h3></div>
+                <div class="skill-tile fade-in"><h3>MoveIt2</h3></div>
+                <div class="skill-tile fade-in"><h3>F3D to URDF</h3></div>
+                <div class="skill-tile fade-in"><h3>NAV2</h3></div>
+                <div class="skill-tile fade-in"><h3>MATLAB/Simulink</h3></div>
+                <div class="skill-tile fade-in"><h3>Arduino</h3></div>
+                <div class="skill-tile fade-in"><h3>Raspberry Pi</h3></div>
+                <div class="skill-tile fade-in"><h3>ESP32</h3></div>
+                <div class="skill-tile fade-in"><h3>CAD/CAM (Fusion360)</h3></div>
+                <div class="skill-tile fade-in"><h3>Laser Cutting</h3></div>
             </div>
         </div>
     </section>
 
+    <!-- Projects -->
     <section id="projects">
         <div class="container">
-            <h2>Projects</h2>
+            <div class="section-header fade-in">
+                <div class="section-label">03 / Portfolio</div>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-desc">A selection of my robotics, computer vision, and AI projects with live demos.</p>
+            </div>
             <div class="projects-grid">
-                <!-- Pick-and-Place Robot -->
-                <div class="project-card">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/svvCpgQ0tZ4?rel=0" 
-                            title="Pick-and-Place Embodied AI Robot Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/svvCpgQ0tZ4?rel=0" title="Pick-and-Place Embodied AI Robot Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>ROS2 + MoveIt Pick-and-Place Robot with LLM Reasoning</h3>
                         <p>ROS 2-based pick-and-place robotic system integrating MoveIt, LangChain agentic AI, and Gazebo Ignition for language-conditioned manipulation.</p>
                         <div class="tech-tags">
@@ -536,19 +957,12 @@
                     </div>
                 </div>
 
-                <!-- VisionLock -->
-                <div class="project-card">
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Mbn9JryDL0w?rel=0" 
-                            title="VisionLock Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/Mbn9JryDL0w?rel=0" title="VisionLock Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>VisionLock</h3>
                         <p>Computer Vision-Based Smart Security System using YOLO and FaceNet for real-time threat detection and facial recognition.</p>
                         <div class="tech-tags">
@@ -564,19 +978,12 @@
                     </div>
                 </div>
 
-                <!-- VisionAware Agent -->
-                <div class="project-card">
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/QFjQbL6aZnM?rel=0" 
-                            title="VisionAware Agent Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/QFjQbL6aZnM?rel=0" title="VisionAware Agent Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>VisionAware Agent</h3>
                         <p>Advanced AI agent with visual awareness capabilities for intelligent scene understanding and decision-making.</p>
                         <div class="tech-tags">
@@ -591,19 +998,12 @@
                     </div>
                 </div>
 
-                <!-- AI DeepSearch Agent -->
-                <div class="project-card">
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Fd65fdHaB30?rel=0" 
-                            title="AI DeepSearch Agent Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/Fd65fdHaB30?rel=0" title="AI DeepSearch Agent Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>AI DeepSearch Agent</h3>
                         <p>Intelligent research assistant for academic purposes with advanced search and analysis capabilities.</p>
                         <div class="tech-tags">
@@ -618,19 +1018,12 @@
                     </div>
                 </div>
 
-                <!-- VisionCount -->
-                <div class="project-card">
+                <!-- Project 5 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Wbef0n2PLcc?rel=0" 
-                            title="VisionCount Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/Wbef0n2PLcc?rel=0" title="VisionCount Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>VisionCount</h3>
                         <p>Real-time vehicle counting system for traffic analysis and road planning using computer vision.</p>
                         <div class="tech-tags">
@@ -646,19 +1039,12 @@
                     </div>
                 </div>
 
-                <!-- ROS2 Edge-Avoiding Robot -->
-                <div class="project-card">
+                <!-- Project 6 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/lh8DTTLjENE?rel=0" 
-                            title="ROS2 Edge-Avoiding Robot Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/lh8DTTLjENE?rel=0" title="ROS2 Edge-Avoiding Robot Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>ROS2 Edge-Avoiding Robot</h3>
                         <p>Autonomous robot using ROS2 with sensor feedback and differential drive control for edge avoidance.</p>
                         <div class="tech-tags">
@@ -674,19 +1060,12 @@
                     </div>
                 </div>
 
-                <!-- CourierX -->
-                <div class="project-card">
+                <!-- Project 7 -->
+                <div class="project-card fade-in">
                     <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/HUDVS1iXoNE?rel=0" 
-                            title="CourierX Demo" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe src="https://www.youtube.com/embed/HUDVS1iXoNE?rel=0" title="CourierX Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>CourierX</h3>
                         <p>Full demonstration of autonomous delivery system with path planning and obstacle avoidance.</p>
                         <div class="tech-tags">
@@ -704,56 +1083,169 @@
         </div>
     </section>
 
-    <section id="certificates">
+    <!-- Philosophy -->
+    <section class="philosophy">
         <div class="container">
-            <h2>Certificates & Achievements</h2>
+            <div class="fade-in">
+                <p class="philosophy-quote">
+                    "The best way to impact the world in a positive way is to <strong>teach robotics</strong>.
+                    It is interesting, and any child exposed to it at a young age will stay glued to it."
+                </p>
+                <p class="philosophy-author">— My guiding philosophy on STEM education and research</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates" style="background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">04 / Credentials</div>
+                <h2 class="section-title">Certificates & Achievements</h2>
+                <p class="section-desc">Professional certifications and courses that shaped my expertise.</p>
+            </div>
             <div class="certificates-grid">
-                <!-- Certificate 1 - Replace with your actual certificates -->
-                <div class="certificate-card">
-                    <img src="certificate1.jpg" alt="Certificate 1" class="certificate-img">
+                <div class="certificate-card fade-in">
+                    <img src="certificate1.jpg" alt="Mastering Pytorch" class="certificate-img">
                     <div class="certificate-info">
                         <h3>Mastering Pytorch</h3>
                         <p>Udemy - 2025</p>
                     </div>
                 </div>
-                <!-- Certificate 2 -->
-                <div class="certificate-card">
-                    <img src="certificate2.jpg" alt="Certificate 2" class="certificate-img">
+                <div class="certificate-card fade-in">
+                    <img src="certificate2.jpg" alt="Generative AI Mastermind" class="certificate-img">
                     <div class="certificate-info">
                         <h3>Generative AI Mastermind</h3>
                         <p>Outskill - 2025</p>
                     </div>
                 </div>
-                <!-- Certificate 3 -->
-                <div class="certificate-card">
-                    <img src="certificate3.jpg" alt="Certificate 3" class="certificate-img">
+                <div class="certificate-card fade-in">
+                    <img src="certificate3.jpg" alt="ROS2 Essentials" class="certificate-img">
                     <div class="certificate-info">
                         <h3>ROS2 Essentials</h3>
                         <p>Mechamind - 2025</p>
                     </div>
                 </div>
-
-                <div class="certificate-card">
-                    <img src="certificate4.webp" alt="Certificate 4" class="certificate-img">
+                <div class="certificate-card fade-in">
+                    <img src="certificate4.webp" alt="Agentic AI Fundamentals" class="certificate-img">
                     <div class="certificate-info">
-                        <h3>Agentic AI Fundamentals/h3>
+                        <h3>Agentic AI Fundamentals</h3>
                         <p>Huggingface - 2025</p>
                     </div>
                 </div>
-                <!-- Add more certificates as needed -->
             </div>
-            
-            <div class="cv-download">
-                <a href="John-Babalola-CV.pdf" download class="cv-button">Download CV</a>
+            <div class="cv-download fade-in">
+                <a href="John-Babalola-CV.pdf" download class="cv-button">📄 Download CV</a>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <!-- Contact -->
+    <section id="contact">
         <div class="container">
-            <p>&copy; 2026 John Babalola. All Rights Reserved.</p>
-            <p>Passionate about Robotics, AI, and STEM Education</p>
+            <div class="section-header fade-in">
+                <div class="section-label">05 / Contact</div>
+                <h2 class="section-title">Let's Build Something<br>Together</h2>
+                <p class="section-desc">I'm always open to research collaborations, robotics projects, or conversations about STEM education.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Get in Touch</h3>
+                    <p>Whether you have a research opportunity, a robotics project idea, or just want to talk about the future of autonomous systems — I'd love to hear from you.</p>
+                    <div class="contact-links">
+                        <a href="mailto:abidemibabalola23@gmail.com" class="contact-link">
+                            <span class="icon">✉️</span>
+                            <span class="info">
+                                <span class="label">Email</span>
+                                <span class="value">abidemibabalola23@gmail.com</span>
+                            </span>
+                        </a>
+                        <a href="tel:+2349168881444" class="contact-link">
+                            <span class="icon">📞</span>
+                            <span class="info">
+                                <span class="label">Phone</span>
+                                <span class="value">+234 916 888 1444</span>
+                            </span>
+                        </a>
+                        <a href="https://github.com/john002013" target="_blank" class="contact-link">
+                            <span class="icon">💻</span>
+                            <span class="info">
+                                <span class="label">GitHub</span>
+                                <span class="value">@john002013</span>
+                            </span>
+                        </a>
+                        <a href="https://linkedin.com/in/john-babalola-1a12a72a7" target="_blank" class="contact-link">
+                            <span class="icon">🔗</span>
+                            <span class="info">
+                                <span class="label">LinkedIn</span>
+                                <span class="value">John Babalola</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! This is a demo form — connect via email for now.');">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Research collaboration, project idea..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Tell me about your project or research opportunity..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Send Message →
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 John Babalola. All Rights Reserved.</p>
+        <p>Passionate about Robotics, AI, and STEM Education</p>
+        <p style="margin-top: 0.5rem;">Hosted on <a href="https://github.com/john002013">GitHub Pages</a></p>
     </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
