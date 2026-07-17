@@ -167,6 +167,23 @@
             z-index: 1;
         }
 
+        .hero-profile {
+            margin-bottom: 1.5rem;
+        }
+        .hero-profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12), 0 0 0 4px rgba(37, 99, 235, 0.1);
+            transition: var(--transition);
+        }
+        .hero-profile-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.15), 0 0 0 5px rgba(249, 115, 22, 0.15);
+        }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -177,7 +194,7 @@
             border-radius: 100px;
             font-size: 0.85rem;
             color: var(--blue-dark);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 600;
             font-family: 'JetBrains Mono', monospace;
         }
@@ -192,7 +209,7 @@
             font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 900;
             line-height: 1.05;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.03em;
             color: var(--text-primary);
         }
@@ -207,7 +224,7 @@
             font-size: clamp(1.15rem, 2.5vw, 1.4rem);
             color: var(--text-secondary);
             max-width: 620px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2.2rem;
             line-height: 1.7;
             font-weight: 400;
         }
@@ -216,7 +233,7 @@
             display: flex;
             justify-content: center;
             gap: 3.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
         }
         .stat { text-align: center; }
@@ -370,7 +387,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--blue);
+            font-weight: 700;
         }
 
         .timeline-item {
@@ -389,7 +408,7 @@
             flex-shrink: 0;
             box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
         }
-        .timeline-content h4 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--text-primary); }
+        .timeline-content h4 { font-size: 1rem; margin-bottom: 0.25rem; color: var(--text-primary); font-weight: 700; }
         .timeline-content .place { color: var(--blue); font-size: 0.9rem; margin-bottom: 0.2rem; font-weight: 600; }
         .timeline-content .time { color: var(--text-muted); font-size: 0.85rem; }
 
@@ -479,6 +498,7 @@
             margin-bottom: 0.6rem;
             color: var(--text-primary);
             font-weight: 700;
+            line-height: 1.35;
         }
         .project-content p {
             color: var(--text-secondary);
@@ -516,7 +536,7 @@
             color: #ffffff;
             text-decoration: none;
             font-size: 0.82rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
@@ -629,6 +649,7 @@
             color: var(--text-primary);
             font-weight: 700;
             background: linear-gradient(180deg, transparent 60%, rgba(249,115,22,0.2) 60%);
+            font-style: normal;
         }
         .philosophy-author {
             color: var(--text-muted);
@@ -649,6 +670,7 @@
             font-size: 1.6rem;
             margin-bottom: 1rem;
             color: var(--text-primary);
+            font-weight: 800;
         }
         .contact-info p {
             color: var(--text-secondary);
@@ -681,11 +703,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            color: var(--blue);
+            font-weight: 700;
             flex-shrink: 0;
         }
         .contact-link .info { display: flex; flex-direction: column; }
-        .contact-link .label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+        .contact-link .label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
         .contact-link .value { font-weight: 700; font-size: 0.95rem; color: var(--text-primary); }
 
         .contact-form {
@@ -734,7 +758,7 @@
         }
         footer a { color: var(--orange-light); text-decoration: none; font-weight: 600; }
         footer a:hover { color: white; }
-        footer p:first-child { color: #e2e8f0; font-weight: 600; margin-bottom: 0.5rem; }
+        footer p:first-child { color: #e2e8f0; font-weight: 700; margin-bottom: 0.5rem; }
 
         /* Animations */
         .fade-in {
@@ -748,6 +772,7 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
+            .hero-profile-img { width: 130px; height: 130px; }
             .hero-stats { gap: 2rem; }
             .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .projects-grid { grid-template-columns: 1fr; }
@@ -796,7 +821,7 @@
                 <li><a href="#certificates">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">&#9776;</button>
         </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu">
@@ -812,6 +837,9 @@
         <div class="hero-bg"></div>
         <div class="hero-grid"></div>
         <div class="hero-content">
+            <div class="hero-profile">
+                <img src="profile.jpg" alt="John Babalola" class="hero-profile-img">
+            </div>
             <div class="hero-badge">
                 <span class="status"></span>
                 Open to Research Opportunities
@@ -822,7 +850,7 @@
             </h1>
             <p class="hero-subtitle">
                 Final-year Electrical Engineering student passionate about precision agriculture,
-                human-robot interaction, autonomous systems and navigation and robot perception.
+                human-robot interaction, autonomous systems, and robot perception.
             </p>
             <div class="hero-stats">
                 <div class="stat">
@@ -830,7 +858,7 @@
                     <div class="stat-label">Best Graduating</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">4+</div>
+                    <div class="stat-value">8+</div>
                     <div class="stat-label">Years Building</div>
                 </div>
                 <div class="stat">
@@ -839,13 +867,13 @@
                 </div>
             </div>
             <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary">View My Work →</a>
+                <a href="#projects" class="btn btn-primary">View My Work &rarr;</a>
                 <a href="#contact" class="btn btn-secondary">Get in Touch</a>
             </div>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
-            <span>↓</span>
+            <span>&darr;</span>
         </div>
     </section>
 
@@ -873,13 +901,13 @@
                     </p>
                 </div>
                 <div class="about-card fade-in">
-                    <h3><span class="icon">🎓</span> Education</h3>
+                    <h3><span class="icon">Ed</span> Education</h3>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <h4>B.Tech. Electrical & Electronic Engineering</h4>
+                            <h4>B.Eng. Electrical & Electronic Engineering</h4>
                             <div class="place">Ladoke Akintola University of Technology</div>
-                            <div class="time">2021 — 2026 • 2nd Best Graduating Student</div>
+                            <div class="time">2021 &mdash; 2026 &bull; 2nd Best Graduating Student</div>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -887,7 +915,7 @@
                         <div class="timeline-content">
                             <h4>Self-Directed Robotics & AI Studies</h4>
                             <div class="place">Online Platforms & Research Papers</div>
-                            <div class="time">2016 — Present • Continuous Learning</div>
+                            <div class="time">2016 &mdash; Present &bull; Continuous Learning</div>
                         </div>
                     </div>
                 </div>
@@ -932,7 +960,7 @@
             <div class="section-header fade-in">
                 <div class="section-label">03 / Portfolio</div>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-desc">A selection of my robotics, computer vision and AI projects with live demos.</p>
+                <p class="section-desc">A selection of my robotics, computer vision, and AI projects with live demos.</p>
             </div>
             <div class="projects-grid">
                 <!-- Project 1 -->
@@ -1088,10 +1116,10 @@
         <div class="container">
             <div class="fade-in">
                 <p class="philosophy-quote">
-                    "The best way to impact the world in a positive way is to <strong>teach robotics</strong>.
-                    It is interesting, and any child exposed to it at a young age will stay glued to it."
+                    &ldquo;The best way to impact the world in a positive way is to <strong>teach robotics</strong>.
+                    It is interesting, and any child exposed to it at a young age will stay glued to it.&rdquo;
                 </p>
-                <p class="philosophy-author">— My guiding philosophy on STEM education and research</p>
+                <p class="philosophy-author">My guiding philosophy on STEM education and research</p>
             </div>
         </div>
     </section>
@@ -1109,33 +1137,33 @@
                     <img src="certificate1.jpg" alt="Mastering Pytorch" class="certificate-img">
                     <div class="certificate-info">
                         <h3>Mastering Pytorch</h3>
-                        <p>Udemy - 2025</p>
+                        <p>Udemy &mdash; 2025</p>
                     </div>
                 </div>
                 <div class="certificate-card fade-in">
                     <img src="certificate2.jpg" alt="Generative AI Mastermind" class="certificate-img">
                     <div class="certificate-info">
                         <h3>Generative AI Mastermind</h3>
-                        <p>Outskill - 2025</p>
+                        <p>Outskill &mdash; 2025</p>
                     </div>
                 </div>
                 <div class="certificate-card fade-in">
                     <img src="certificate3.jpg" alt="ROS2 Essentials" class="certificate-img">
                     <div class="certificate-info">
                         <h3>ROS2 Essentials</h3>
-                        <p>Mechamind - 2025</p>
+                        <p>Mechamind &mdash; 2025</p>
                     </div>
                 </div>
                 <div class="certificate-card fade-in">
                     <img src="certificate4.webp" alt="Agentic AI Fundamentals" class="certificate-img">
                     <div class="certificate-info">
                         <h3>Agentic AI Fundamentals</h3>
-                        <p>Huggingface - 2025</p>
+                        <p>Huggingface &mdash; 2025</p>
                     </div>
                 </div>
             </div>
             <div class="cv-download fade-in">
-                <a href="John-Babalola-CV.pdf" download class="cv-button">📄 Download CV</a>
+                <a href="John-Babalola-CV.pdf" download class="cv-button">Download CV</a>
             </div>
         </div>
     </section>
@@ -1151,31 +1179,31 @@
             <div class="contact-grid">
                 <div class="contact-info fade-in">
                     <h3>Get in Touch</h3>
-                    <p>Whether you have a research opportunity, a robotics project idea, or just want to talk about the future of autonomous systems — I'd love to hear from you.</p>
+                    <p>Whether you have a research opportunity, a robotics project idea, or just want to talk about the future of autonomous systems &mdash; I'd love to hear from you.</p>
                     <div class="contact-links">
                         <a href="mailto:abidemibabalola23@gmail.com" class="contact-link">
-                            <span class="icon">✉️</span>
+                            <span class="icon">@</span>
                             <span class="info">
                                 <span class="label">Email</span>
                                 <span class="value">abidemibabalola23@gmail.com</span>
                             </span>
                         </a>
                         <a href="tel:+2349168881444" class="contact-link">
-                            <span class="icon">📞</span>
+                            <span class="icon">Ph</span>
                             <span class="info">
                                 <span class="label">Phone</span>
                                 <span class="value">+234 916 888 1444</span>
                             </span>
                         </a>
                         <a href="https://github.com/john002013" target="_blank" class="contact-link">
-                            <span class="icon">💻</span>
+                            <span class="icon">Gh</span>
                             <span class="info">
                                 <span class="label">GitHub</span>
                                 <span class="value">@john002013</span>
                             </span>
                         </a>
                         <a href="https://linkedin.com/in/john-babalola-1a12a72a7" target="_blank" class="contact-link">
-                            <span class="icon">🔗</span>
+                            <span class="icon">In</span>
                             <span class="info">
                                 <span class="label">LinkedIn</span>
                                 <span class="value">John Babalola</span>
@@ -1184,7 +1212,7 @@
                     </div>
                 </div>
                 <div class="contact-form fade-in">
-                    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! This is a demo form — connect via email for now.');">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for reaching out! This is a demo form &mdash; connect via email for now.');">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" placeholder="Your name" required>
@@ -1202,7 +1230,7 @@
                             <textarea id="message" placeholder="Tell me about your project or research opportunity..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                            Send Message →
+                            Send Message &rarr;
                         </button>
                     </form>
                 </div>
@@ -1212,24 +1240,21 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 John Babalola. All Rights Reserved.</p>
+        <p>&copy; 2026 John Babalola. All Rights Reserved.</p>
         <p>Passionate about Robotics, AI, and STEM Education</p>
         <p style="margin-top: 0.5rem;">Hosted on <a href="https://github.com/john002013">GitHub Pages</a></p>
     </footer>
 
     <script>
-        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Mobile menu toggle
         function toggleMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -1238,7 +1263,6 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
